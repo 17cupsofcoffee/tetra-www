@@ -1,4 +1,6 @@
 module.exports = {
+  dest: "dist",
+
   title: "Tetra",
   description: "A simple 2D game framework written in Rust.",
 
