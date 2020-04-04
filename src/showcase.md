@@ -2,7 +2,7 @@
 
 This page is a showcase for projects that are using Tetra.
 
-Please feel free to [add your own](https://github.com/17cupsofcoffee/tetra/edit/master/docs/showcase.md)!
+Please feel free to [add your own](https://github.com/17cupsofcoffee/tetra-www/edit/master/src/showcase.md)!
 
 ## Games
 

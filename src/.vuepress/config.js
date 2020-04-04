@@ -5,6 +5,7 @@ module.exports = {
   themeConfig: {
     repo: "17cupsofcoffee/tetra",
     docsRepo: "17cupsofcoffee/tetra-www",
+    docsDir: "src",
     editLinks: true,
     lastUpdated: "Last updated",
 
