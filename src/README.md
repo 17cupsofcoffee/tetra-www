@@ -1,7 +1,7 @@
 ---
 home: true
 actionText: Get Started →
-actionLink: /installation
+actionLink: /installation/
 footer: Copyright © 2020 Joe Clay and contributors
 ---
 

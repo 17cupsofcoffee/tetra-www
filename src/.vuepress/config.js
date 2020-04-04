@@ -10,8 +10,8 @@ module.exports = {
 
     nav: [
       { text: "Home", link: "/" },
-      { text: "Docs", link: "/installation" },
-      { text: "Showcase", link: "/showcase" },
+      { text: "Docs", link: "/installation/" },
+      { text: "Showcase", link: "/showcase/" },
       { text: "API Reference", link: "https://docs.rs/tetra" },
       { text: "Changelog", link: "https://github.com/17cupsofcoffee/tetra/blob/master/CHANGELOG.md" },
     ],
@@ -35,5 +35,8 @@ module.exports = {
     ],
   },
 
-  plugins: [["vuepress-plugin-container", { type: "info", defaultTitle: "INFO" }]],
+  plugins: [
+    ["vuepress-plugin-clean-urls", { normalSuffix: '/', indexSuffix: '/', notFoundPath: '/404.html' }],
+    ["vuepress-plugin-container", { type: "info", defaultTitle: "INFO" }]
+  ],
 };
