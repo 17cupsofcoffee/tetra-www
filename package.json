@@ -1,0 +1,24 @@
+{
+  "name": "tetra-www",
+  "scripts": {
+    "start": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "prettier": {
+    "printWidth": 120
+  },
+  "devDependencies": {
+    "vuepress": "^1.4.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.1",
+    "prettier": "^2.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
+  }
+}
