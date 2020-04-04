@@ -157,7 +157,7 @@ We can then plug this field into our existing rendering code, so that the textur
 fn draw(&mut self, ctx: &mut Context) -> tetra::Result {
     graphics::clear(ctx, Color::rgb(0.392, 0.584, 0.929));
 
-    graphics::draw(ctx, &self.paddle_texture, &self.paddle_position);
+    graphics::draw(ctx, &self.paddle_texture, self.paddle_position);
 
     Ok(())
 }
