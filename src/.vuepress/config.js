@@ -5,6 +5,7 @@ module.exports = {
     description: "A simple 2D game framework written in Rust.",
 
     themeConfig: {
+        domain: "https://tetra.seventeencups.net",
         repo: "17cupsofcoffee/tetra",
         docsRepo: "17cupsofcoffee/tetra-www",
         docsDir: "src",
@@ -45,6 +46,7 @@ module.exports = {
             "vuepress-plugin-seo",
             {
                 title: ($page, $site) => ($page.title === "Home" ? $site.title : $page.title),
+                author: (_) => null,
                 description: ($page, $site) => $page.frontmatter.description || $site.description,
                 twitterCard: (_) => null,
                 image: (_) => null,
