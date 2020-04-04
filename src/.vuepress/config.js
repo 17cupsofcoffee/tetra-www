@@ -47,7 +47,7 @@ module.exports = {
             {
                 title: ($page, $site) => ($page.title === "Home" ? $site.title : $page.title),
                 author: (_) => null,
-                description: ($page, $site) => $page.frontmatter.description || $site.description,
+                description: ($page, $site) => ($page.title === "Home" ? $site.description : $page.frontmatter.description),
                 twitterCard: (_) => null,
                 image: (_) => null,
             },
