@@ -38,6 +38,7 @@ module.exports = {
 
   plugins: [
     ["vuepress-plugin-clean-urls", { normalSuffix: '/', indexSuffix: '/', notFoundPath: '/404.html' }],
-    ["vuepress-plugin-container", { type: "info", defaultTitle: "INFO" }]
+    ["vuepress-plugin-container", { type: "info", defaultTitle: "INFO" }],
+    "vuepress-plugin-seo"
   ],
 };
