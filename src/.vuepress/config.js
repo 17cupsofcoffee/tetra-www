@@ -11,8 +11,9 @@ module.exports = {
     nav: [
       { text: "Home", link: "/" },
       { text: "Docs", link: "/installation" },
-      { text: "Changelog", link: "https://github.com/17cupsofcoffee/tetra/blob/master/CHANGELOG.md" },
+      { text: "Showcase", link: "/showcase" },
       { text: "API Reference", link: "https://docs.rs/tetra" },
+      { text: "Changelog", link: "https://github.com/17cupsofcoffee/tetra/blob/master/CHANGELOG.md" },
     ],
 
     sidebar: [
