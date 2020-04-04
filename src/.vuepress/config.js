@@ -41,6 +41,14 @@ module.exports = {
   plugins: [
     ["vuepress-plugin-clean-urls", { normalSuffix: '/', indexSuffix: '/', notFoundPath: '/404.html' }],
     ["vuepress-plugin-container", { type: "info", defaultTitle: "INFO" }],
-    "vuepress-plugin-seo"
+    [
+      "vuepress-plugin-seo",
+      {
+          title: ($page, $site) => $page.title === "Home" ? $site.title : $page.title,
+          description: ($page, $site) => $page.frontmatter.description || $site.description,
+          twitterCard: _ => null,
+          image: _ => null,
+      }
+    ]
   ],
 };
