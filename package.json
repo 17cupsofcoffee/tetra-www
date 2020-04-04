@@ -1,26 +1,27 @@
 {
-  "name": "tetra-www",
-  "scripts": {
-    "start": "vuepress dev src",
-    "build": "vuepress build src"
-  },
-  "prettier": {
-    "printWidth": 120
-  },
-  "devDependencies": {
-    "husky": "^4.2.3",
-    "lint-staged": "^10.1.1",
-    "prettier": "^2.0.2",
-    "vuepress": "^1.4.0",
-    "vuepress-plugin-clean-urls": "^1.1.1",
-    "vuepress-plugin-seo": "^0.1.2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
+    "name": "tetra-www",
+    "scripts": {
+        "start": "vuepress dev src",
+        "build": "vuepress build src"
+    },
+    "devDependencies": {
+        "husky": "^4.2.3",
+        "lint-staged": "^10.1.1",
+        "prettier": "^2.0.2",
+        "vuepress": "^1.4.0",
+        "vuepress-plugin-clean-urls": "^1.1.1",
+        "vuepress-plugin-seo": "^0.1.2"
+    },
+    "prettier": {
+        "printWidth": 120,
+        "tabWidth": 4
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.js": "prettier --write"
     }
-  },
-  "lint-staged": {
-    "*.{js,css,md}": "prettier --write"
-  }
 }
