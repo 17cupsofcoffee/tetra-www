@@ -1,3 +1,8 @@
+---
+sidebar: false
+pageClass: showcase
+---
+
 # Showcase
 
 This page is a showcase for projects that are using Tetra.
