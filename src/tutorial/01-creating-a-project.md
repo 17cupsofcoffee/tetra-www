@@ -1,6 +1,14 @@
 # Creating a Project
 
-First, make sure you've followed through the instructions on the '[Installation](../installation.md)' page to set up your development environment. Then, open a terminal and run the following command to create a new Cargo project:
+First, you'll need to make sure your development environment is set up properly. There's three things that need to be installed on your machine in order to successfully compile a Tetra project:
+
+* The latest stable version of Rust
+* The SDL2 development libraries
+* The ALSA development libraries (only required on Linux)
+
+There's instructions on how to set these up on the '[Installation](../installation.md)' page, so make sure you've followed through those steps before continuing!
+
+With that out of the way, we're now ready to get started on our first game! Open a terminal and run the following command to create a new Cargo project:
 
 ```bash
 cargo new --bin pong
