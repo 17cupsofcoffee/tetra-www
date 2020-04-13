@@ -6,11 +6,7 @@
 
 Probably not - SDL2 is a stable and well-tested foundation for building games, and it runs on basically every platform under the sun, so I'm hesitant to replace it. That's likely to remain the only non-Rust dependency, however.
 
-If you're looking for a similar engine that _is_ working towards being pure Rust, [GGEZ](https://github.com/ggez/ggez) and [Quicksilver](https://github.com/ryanisaacg/quicksilver) are excellent options.
-
-### Why is it called Tetra?
-
-I'm terrible at naming projects, and [this](https://www.youtube.com/watch?v=g3xg28yaZ5E) happened to be playing when I was typing `cargo new`. I wish there was a better origin story than that :D
+If you're looking for a similar engine that _is_ pure Rust, [GGEZ](https://github.com/ggez/ggez), [Quicksilver](https://github.com/ryanisaacg/quicksilver) and [Coffee](https://github.com/hecrj/coffee) are excellent options.
 
 ### Do I have to install SDL manually?
 
@@ -18,7 +14,7 @@ It's possible to have your project automatically compile SDL2 from source as par
 
 ```toml
 [dependencies.tetra]
-version = "0.2"
+version = "0.3"
 features = ["sdl2_bundled"]
 ```
 
@@ -30,19 +26,25 @@ If you want to avoid your users having to install SDL2 themselves (or you having
 
 ```toml
 [dependencies.tetra]
-version = "0.2"
+version = "0.3"
 features = ["sdl2_static_link"]
 ```
 
 This comes with some trade-offs, however - make sure you read [this document](https://hg.libsdl.org/SDL/file/default/docs/README-dynapi.md) in the SDL2 repository so that you understand what you're doing!
 
-## Compatibility
+## Graphics
 
 ### Why am I getting a black screen?
 
-First, check the debug output on the console to see which OpenGL version your drivers are using - Tetra primarily aims to support 3.2 and above, and explicitly will **not** work with anything lower than 3.0.
+Tetra currently targets OpenGL 3.2, so if your hardware does not support this, you might have trouble running games written with the framework. You can check your version of OpenGL by enabling Tetra's debug output - add `.debug_info(true)` to your `ContextBuilder`, run your game, and then look at the console.
 
-If your OpenGL version is higher than 3.0 and you're still getting a black screen, that may indicate a bug - I currently only have access to a Windows machine with a reasonably modern graphics card, so it's not outside the realms of possibility that something that works for me might be broken for others! Please submit an issue, and I'll try to fix it and release a patch version.
+If your OpenGL version is 3.2 or higher and you're still getting a black screen, that may indicate a bug - I currently only have access to a Windows machine with a reasonably modern graphics card, so it's not outside the realms of possibility that something that works for me might be broken for others! Please submit an issue, and I'll try to fix it and release a patch version.
+
+### Does Tetra support drawing primitive shapes/meshes?
+
+Not currently - there is an [open issue](https://github.com/17cupsofcoffee/tetra/issues/103) to implement this, but it will require some refactoring of the renderer.
+
+If you just want to draw simple rectangles, you can work around this by [creating a solid colored `Texture`](https://docs.rs/tetra/0.3.4/tetra/graphics/struct.Texture.html#method.from_rgba) and then drawing that. If you create a 1x1 solid white texture, you can use the `scale` and `color` `DrawParams` to draw multiple rectangles of varying sizes/colors/transparencies in a single draw call.
 
 ## Performance
 
@@ -88,3 +90,9 @@ For reference, my system specs are:
 - CPU: AMD Ryzen 5 1600 3.2GHz
 - GPU: NVidia GeForce GTX 1050 Ti
 - RAM: 8GB DDR4
+
+## Miscellaneous
+
+### Why is it called Tetra?
+
+I'm terrible at naming projects, and [this](https://www.youtube.com/watch?v=g3xg28yaZ5E) happened to be playing when I was typing `cargo new`. I wish there was a better origin story than that :D
