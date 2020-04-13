@@ -1,6 +1,9 @@
 # tetra.seventeencups.net
 
-This repository holds the source code for the [Tetra website](tetra.seventeencups.net).
+![Build Status](https://img.shields.io/netlify/1a4ff2e4-0213-4322-8706-6e61918a0095)
+[![License](https://img.shields.io/crates/l/tetra.svg)](LICENSE)
+
+This repository holds the source code for [Tetra](https://github.com/17cupsofcoffee/tetra)'s [documentation website](https://tetra.seventeencups.net).
 
 It uses [VuePress](https://vuepress.vuejs.org) to generate a static site, which is then deployed to [Netlify](https://www.netlify.com/).
 
