@@ -32,6 +32,22 @@ features = ["sdl2_static_link"]
 
 This comes with some trade-offs, however - make sure you read [this document](https://hg.libsdl.org/SDL/file/default/docs/README-dynapi.md) in the SDL2 repository so that you understand what you're doing!
 
+### How do I hide the console when running my game?
+
+On Windows, you can add the `windows_subsystem` attribute to your `main.rs`:
+
+```rust
+// To hide the console in all builds:
+#![windows_subsystem = "windows"]
+
+// To hide the console in release builds only:
+#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+```
+
+On Mac, you will need to package your game as a `.app` - see [this thread on the Rust forums](https://users.rust-lang.org/t/how-i-can-build-graphic-application-app-without-consoles-window-for-osx-using-rustc/14469/6) for more info.
+
+On Linux, you should not have to make any additional changes.
+
 ## Graphics
 
 ### Why am I getting a black screen?
