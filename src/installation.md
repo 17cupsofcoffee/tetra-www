@@ -25,7 +25,7 @@ The instructions below are adapted from the README of the [sdl2](https://github.
 If you're using the default MSVC Rust toolchain:
 
 1. Go to [the SDL website](https://www.libsdl.org/download-2.0.php) and download the Visual C++ version of the development libraries.
-1. Copy the `.lib` files from the `SDL2-2.0.x/lib/x64` folder of the zip to the `%USERPROFILE/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/x86_64-pc-windows-msvc/lib` folder on your machine. If you are building on a beta/nightly toolchain, adjust the location accordingly.
+1. Copy all the files from the `SDL2-2.0.x/lib/x64` folder of the zip to the `%USERPROFILE/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/x86_64-pc-windows-msvc/lib` folder on your machine. If you are building on a beta/nightly toolchain, adjust the location accordingly.
 
 If you're using the GNU-based Rust toolchain:
 
