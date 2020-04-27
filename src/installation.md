@@ -32,7 +32,9 @@ If you're using the GNU-based Rust toolchain:
 1. Go to [the SDL website](https://www.libsdl.org/download-2.0.php) and download the MinGW version of the development libraries.
 1. Copy the `.lib` files from the `SDL2-2.0.x/x86_64-w64-mingw32/lib` folder of the zip to the `%USERPROFILE/.rustup/toolchains/stable-x86_64-pc-windows-gnu/lib/rustlib/x86_64-pc-windows-gnu/lib` folder on your machine. If you are building on a beta/nightly toolchain, adjust the location accordingly.
 
-You'll also need to place the SDL2 .dll in the root of your project (and alongside your .exe when distributing your game). You can download this from the ['Runtime Binaries' section of the SDL website](https://www.libsdl.org/download-2.0.php).
+When starting a new Tetra project, you will also need to make sure that SDL2.dll is present in the root of your project (i.e. the directory where you `cargo run`). You will also need to provide it alongside your game's executable when distributing it to players. **Your game will not start if it is missing!**
+
+You can download SDL2.dll from the ['Runtime Binaries' section of the SDL website](https://www.libsdl.org/download-2.0.php) - pick the version that corresponds to your system architecture.
 
 ### Mac
 
