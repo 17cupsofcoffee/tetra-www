@@ -77,7 +77,7 @@ export default {
             },
             {
                 "title": "Life",
-                "description": "A puzzle game prototype",
+                "description": "A puzzle game prototype.",
                 "url": "https://datoh.itch.io/life",
                 "author": "datoh",
                 "authorUrl": "https://twitter.com/datoh",
