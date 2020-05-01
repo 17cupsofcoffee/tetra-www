@@ -75,6 +75,14 @@ export default {
                 "authorUrl": "https://github.com/johanlindfors",
                 "screenshot": "flappy.png"
             },
+            {
+                "title": "Life",
+                "description": "A puzzle game prototype",
+                "url": "https://datoh.itch.io/life",
+                "author": "datoh",
+                "authorUrl": "https://twitter.com/datoh",
+                "screenshot": "life.png"
+            }
         ]
     })
 }
