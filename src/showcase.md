@@ -82,6 +82,14 @@ export default {
                 "author": "datoh",
                 "authorUrl": "https://twitter.com/datoh",
                 "screenshot": "life.png"
+            },
+            {
+                "title": "Lonely Star",
+                "description": "A side-scroller with generative music.",
+                "url": "https://17cupsofcoffee.itch.io/lonely-star",
+                "author": "17cupsofcoffee",
+                "authorUrl": "https://github.com/17cupsofcoffee",
+                "screenshot": "lonely-star.png"
             }
         ]
     })
