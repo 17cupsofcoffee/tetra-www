@@ -45,7 +45,7 @@ export default {
             },
             {
                 "title": "rl",
-                "description": "A tech demo, showing how a roguelike can be built with Tetra and Specs.",
+                "description": "A tech demo, showing how a roguelike can be built with Tetra and an ECS library.",
                 "url": "https://github.com/17cupsofcoffee/rl",
                 "author": "17cupsofcoffee",
                 "authorUrl": "https://github.com/17cupsofcoffee",
