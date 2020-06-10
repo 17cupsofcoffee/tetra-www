@@ -24,7 +24,7 @@ module.exports = {
             {
                 title: "Documentation",
                 collapsable: false,
-                children: ["/installation", "/examples", "/faq"],
+                children: ["/installation", "/examples", "/distributing", "/faq"],
             },
             {
                 title: "Tutorial: Pong",
@@ -47,7 +47,8 @@ module.exports = {
             {
                 title: ($page, $site) => ($page.title === "Home" ? $site.title : $page.title),
                 author: (_) => null,
-                description: ($page, $site) => ($page.title === "Home" ? $site.description : $page.frontmatter.description),
+                description: ($page, $site) =>
+                    $page.title === "Home" ? $site.description : $page.frontmatter.description,
                 twitterCard: (_) => null,
                 image: (_) => null,
             },
