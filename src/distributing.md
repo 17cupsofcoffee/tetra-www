@@ -43,6 +43,14 @@ By default, an application built by Cargo won't have any sort of icon or metadat
 
 On Windows, you can add these easily via the [`winres`](https://github.com/mxre/winres) crate, which can be used via a `build.rs` script in your project. Alternatively, you can call directly into the `rc` command line tool included in the Windows SDK, or use an GUI application such as [ResEdit](http://www.resedit.net/).
 
+On Mac, icons and metadata can be added by creating an Application Bundle, also known as a `.app`. Full details on the structure of these bundles can be found in [Apple's documentation](#change-the-game-s-icon-metadata).
+
+On Linux, icons and metadata are generally provided via a [`.desktop` file](https://specifications.freedesktop.org/desktop-entry-spec/latest/) placed in `/usr/share/applications/` (for everyone on the machine) or `~/.local/share/applications` (for a single user). This will also make your game appear in the user's 'Applications' list.
+
+::: tip
+You may also want to consider using something like [AppImage](https://appimage.org/) to package your game and its metadata for distribution - this works in a similar manner to creating an Application Bundle on Mac.
+:::
+
 ## Hide the Console Window <Badge text="Optional" vertical="middle" />
 
 On some platforms, applications built with Rust will display a console window while running by default. This can be useful while debugging, but is usually undesirable for the final release. 
@@ -57,5 +65,4 @@ On Windows, you can hide this window by adding the `windows_subsystem` attribute
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 ```
 
-On Mac, you will need to package your game as a `.app` - see [this thread on the Rust forums](https://users.rust-lang.org/t/how-i-can-build-graphic-application-app-without-consoles-window-for-osx-using-rustc/14469/6) for more info.
-
+On Mac, packaging your game as an Application Bundle (`.app`) as described in ['Change the Game's Icon/Metadata'](#change-the-game-s-icon-metadata) will prevent the terminal window from being displayed.
