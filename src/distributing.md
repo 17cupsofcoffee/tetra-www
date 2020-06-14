@@ -3,7 +3,7 @@
 ::: warning
 This page is a work in progress. It's especially missing information on Mac and Linux, as I'm not sure what the idiomatic ways of distributing games are on those platforms!
 
-If you have knowledge of these platforms, or other experience distributing games written in Rust, please [contribute](https://github.com/17cupsofcoffee/tetra-www/edit/master/src/distributing.md)!
+If you have knowledge of these platforms, or other experience distributing games written in Rust, please [contribute](https://github.com/17cupsofcoffee/tetra-www/edit/main/src/distributing.md)!
 :::
 
 This page lists some of the things that should be taken into consideration when distributing a game built with Tetra.
@@ -27,7 +27,7 @@ Alternatively, you can choose to [statically link SDL into your game](/faq/#can-
 
 ## Include Software Licenses <Badge text="Required" type="error" vertical="middle" />
 
-Tetra is provided under the terms of the [MIT License](https://opensource.org/licenses/MIT). One of the terms of this license is that you must include [the license text](https://github.com/17cupsofcoffee/tetra/blob/master/LICENSE) alongside 'all copies or substantial portions' of the library. Similar terms apply to many of Tetra's dependencies, including [the Rust standard library](https://github.com/rust-lang/rust/blob/master/COPYRIGHT), so it is important to make sure you've fulfilled these requirements when distributing your game to the public.
+Tetra is provided under the terms of the [MIT License](https://opensource.org/licenses/MIT). One of the terms of this license is that you must include [the license text](https://github.com/17cupsofcoffee/tetra/blob/main/LICENSE) alongside 'all copies or substantial portions' of the library. Similar terms apply to many of Tetra's dependencies, including [the Rust standard library](https://github.com/rust-lang/rust/blob/master/COPYRIGHT), so it is important to make sure you've fulfilled these requirements when distributing your game to the public.
 
 In practice, this usually means adding a screen to your game that displays open source licenses, or providing text files alongside the executable.
 

@@ -9,6 +9,7 @@ module.exports = {
         repo: "17cupsofcoffee/tetra",
         docsRepo: "17cupsofcoffee/tetra-www",
         docsDir: "src",
+        docsBranch: "main",
         editLinks: true,
         lastUpdated: "Last updated",
 
@@ -17,7 +18,7 @@ module.exports = {
             { text: "Docs", link: "/installation/" },
             { text: "Showcase", link: "/showcase/" },
             { text: "API Reference", link: "https://docs.rs/tetra" },
-            { text: "Changelog", link: "https://github.com/17cupsofcoffee/tetra/blob/master/CHANGELOG.md" },
+            { text: "Changelog", link: "https://github.com/17cupsofcoffee/tetra/blob/main/CHANGELOG.md" },
         ],
 
         sidebar: [
