@@ -50,6 +50,13 @@ You will also need to add the following to your `~/.bash_profile`, if it is not 
 export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 ```
 
+::: warning
+If you're building your game on Catalina, make sure that you use SDL 2.0.12 or higher - there is a
+[bug in earlier versions](https://hg.libsdl.org/SDL/rev/46b094f7d20e) which causes the OpenGL
+viewport to not scale correctly. See [issue #147](https://github.com/17cupsofcoffee/tetra/issues/147)
+for more information.
+:::
+
 ### Linux
 
 The SDL development libraries are distributed through most Linux package managers - here are a few examples:
