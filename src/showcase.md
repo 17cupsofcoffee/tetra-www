@@ -7,15 +7,11 @@ pageClass: showcase
 
 This page is a showcase for projects that are using Tetra.
 
-Please feel free to [add your own](https://github.com/17cupsofcoffee/tetra-www/edit/main/src/showcase.md)!
+Please feel free to [add your own](https://github.com/17cupsofcoffee/tetra-www#adding-to-the-showcase)!
 
 <Showcase :games="games" />
 
 <script>
-// Please put your screenshots in /src/.vuepress/public/img/showcase, so that they
-// get pulled in as part of the site's build. Keep the file size reasonable, and no
-// GIFs please!
-
 export default {
     data: () => ({
         games: [
