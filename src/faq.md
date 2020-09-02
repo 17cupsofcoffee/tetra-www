@@ -14,7 +14,7 @@ It's possible to have your project automatically compile SDL2 from source as par
 
 ```toml
 [dependencies.tetra]
-version = "0.4"
+version = "0.5"
 features = ["sdl2_bundled"]
 ```
 
@@ -26,7 +26,7 @@ If you want to avoid your users having to install SDL2 themselves (or you having
 
 ```toml
 [dependencies.tetra]
-version = "0.4"
+version = "0.5"
 features = ["sdl2_static_link"]
 ```
 
@@ -44,7 +44,7 @@ If your OpenGL version is 3.2 or higher and you're still getting a black screen,
 
 Not currently - there is an [open issue](https://github.com/17cupsofcoffee/tetra/issues/103) to implement this, but it will require some refactoring of the renderer.
 
-If you just want to draw simple rectangles, you can work around this by [creating a solid colored `Texture`](https://docs.rs/tetra/0.4.0/tetra/graphics/struct.Texture.html#method.from_rgba) and then drawing that. If you create a 1x1 solid white texture, you can use the `scale` and `color` `DrawParams` to draw multiple rectangles of varying sizes/colors/transparencies in a single draw call.
+If you just want to draw simple rectangles, you can work around this by [creating a solid colored `Texture`](https://docs.rs/tetra/0.5/tetra/graphics/struct.Texture.html#method.from_rgba) and then drawing that. If you create a 1x1 solid white texture, you can use the `scale` and `color` `DrawParams` to draw multiple rectangles of varying sizes/colors/transparencies in a single draw call.
 
 ## Performance
 
