@@ -65,4 +65,10 @@ On Windows, you can hide this window by adding the `windows_subsystem` attribute
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 ```
 
+::: warning
+When `windows_subsystem = "windows"` is applied, your application will no longer be able to read from `stdin` or write to `stdout`/`stderr`, as Windows does not attach them by default for GUI applications. Amonst other things, this means that you cannot log errors via `println!` or by returning them from `main` - no output will be displayed, even if the game is run from a command line.
+
+Make sure you have some other way of logging out fatal errors, otherwise it will be very difficult to diagnose the cause of crashes!
+:::
+
 On Mac, packaging your game as an Application Bundle (`.app`) as described in ['Change the Game's Icon/Metadata'](#change-the-game-s-icon-metadata) will prevent the terminal window from being displayed.
