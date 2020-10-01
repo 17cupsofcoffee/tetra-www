@@ -17,7 +17,7 @@ export default {
         games: [
             {
                 "title": "Mankojai",
-                "description": "A puzzle game, created for the Nokia 3310 Jam.",
+                "description": "A puzzle game. Made for Nokia 3310 Jam.",
                 "url": "https://puppetmaster.itch.io/mankojai",
                 "author": "puppetmaster",
                 "authorUrl": "https://puppetmaster.itch.io",
@@ -86,6 +86,38 @@ export default {
                 "author": "17cupsofcoffee",
                 "authorUrl": "https://github.com/17cupsofcoffee",
                 "screenshot": "lonely-star.png"
+            },
+            {
+                "title": "Will It Dissolve?",
+                "description": "A little puzzle game. Made for Open Jam 2019.",
+                "url": "https://puppetmaster.itch.io/dissolve",
+                "author": "puppetmaster",
+                "authorUrl": "https://puppetmaster.itch.io",
+                "screenshot": "will-it-dissolve.png"
+            },
+            {
+                "title": "Compact Space",
+                "description": "An unusual space shooter. Made for Game Off 2019.",
+                "url": "https://puppetmaster.itch.io/compact-space",
+                "author": "puppetmaster",
+                "authorUrl": "https://puppetmaster.itch.io",
+                "screenshot": "compact-space.png"
+            },
+            {
+                "title": "The Last Of Its Kind",
+                "description": "A very simple child's game with a hidden little message. Made for Ludum Dare 46.",
+                "url": "https://puppetmaster.itch.io/the-last-of-its-kind",
+                "author": "puppetmaster",
+                "authorUrl": "https://puppetmaster.itch.io",
+                "screenshot": "the-last-of-its-kind.png"
+            },
+            {
+                "title": "Islas",
+                "description": "A small, easy, relaxed, non-violent puzzle adventure game. Made for LOWREZJAM 2020.",
+                "url": "https://puppetmaster.itch.io/islas",
+                "author": "puppetmaster",
+                "authorUrl": "https://puppetmaster.itch.io",
+                "screenshot": "islas.png"
             }
         ]
     })
