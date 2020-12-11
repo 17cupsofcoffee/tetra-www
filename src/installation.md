@@ -1,40 +1,32 @@
 # Installation
 
-To get started with Tetra, you'll need a couple of things installed:
+To get started with Tetra, you'll need several things installed, some of which are only needed on certain platforms:
 
-- The latest stable version of Rust
-- The SDL 2.0 development libraries
-- The ALSA development libraries (only required on Linux)
+* *All platforms:*
+    * The latest stable version of Rust
+    * The SDL 2.0 development libraries
+* *Linux:*
+    * The ALSA development libraries
 
 ## Installing Rust
 
 Installing Rust is pretty simple - just go to [the website](https://www.rust-lang.org/tools/install) and download the Rustup toolchain manager.
 
-Note that if you're developing on Windows with the default toolchain, you'll also need to install the [Microsoft Visual C++ Build Tools](https://www.visualstudio.com/downloads/#build-tools-for-visual-studio-2017), as Rust uses the MSVC linker when building.
+Note that if you're developing on Windows with the default toolchain, you'll also need to install the [Microsoft Visual C++ Build Tools](https://www.visualstudio.com/downloads/#build-tools-for-visual-studio-2017). This is used for linking your code together.
 
 ## Installing SDL 2.0
 
-Tetra uses SDL for windowing and input, so you will need to have both the runtime and development libraries installed.
-
-::: info
-The instructions below are adapted from the README of the [sdl2](https://github.com/Rust-SDL2/rust-sdl2) crate - further information can be found there.
-:::
+Tetra uses a library called SDL for windowing and input, so you will need to have its runtime and development libraries installed in order for your project to compile.
 
 ### Windows
 
-If you're using the default MSVC Rust toolchain:
+1. Go to [the SDL website](https://www.libsdl.org/download-2.0.php) and download the version of the SDL2 development libraries that corresponds to your Rust toolchain.
+    * If you're using the MSVC toolchain, download the Visual C++ version.
+    * If you're using the GNU toolchain, download the MinGW version.
+2. Inside the .zip file, open the `SDL2-2.0.x/lib/x64` folder and extract `SDL2.lib` and `SDL2.dll` to the root of your Cargo project.
+    * If you're on a 32-bit system, use the files in `SDL2-2.0.x/lib/x86` instead.
 
-1. Go to [the SDL website](https://www.libsdl.org/download-2.0.php) and download the Visual C++ version of the development libraries.
-1. Copy the `.lib` files from the `SDL2-2.0.x/lib/x64` folder of the zip to the `%USERPROFILE/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/x86_64-pc-windows-msvc/lib` folder on your machine. If you are building on a beta/nightly toolchain, adjust the location accordingly.
-
-If you're using the GNU-based Rust toolchain:
-
-1. Go to [the SDL website](https://www.libsdl.org/download-2.0.php) and download the MinGW version of the development libraries.
-1. Copy the `.lib` files from the `SDL2-2.0.x/x86_64-w64-mingw32/lib` folder of the zip to the `%USERPROFILE/.rustup/toolchains/stable-x86_64-pc-windows-gnu/lib/rustlib/x86_64-pc-windows-gnu/lib` folder on your machine. If you are building on a beta/nightly toolchain, adjust the location accordingly.
-
-When starting a new Tetra project, you will also need to make sure that SDL2.dll is present in the root of your project (i.e. the directory where you `cargo run`). You will also need to provide it alongside your game's executable when distributing it to players. **Your game will not start if it is missing!**
-
-You can download SDL2.dll from the ['Runtime Binaries' section of the SDL website](https://www.libsdl.org/download-2.0.php) - pick the version that corresponds to your system architecture.
+You will also need to distribute `SDL2.dll` with your game - see the [distributing guide](./distributing.md) for more details.
 
 ### Mac
 
@@ -74,7 +66,7 @@ sudo pacman -S sdl2
 
 ## Installing ALSA (Linux only)
 
-On Linux, ALSA is used as the audio backend, so you will also need the ALSA development libraries installed. Similar to SDL, you can find these libraries on most Linux package managers:
+On Linux, ALSA is used as the audio backend, so you will need the ALSA development libraries installed. Similar to SDL, you can find these libraries on most Linux package managers:
 
 ```bash
 # Ubuntu/Debian
