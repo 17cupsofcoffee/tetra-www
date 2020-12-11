@@ -21,7 +21,7 @@ By default, Cargo builds projects in debug mode, with very few optimizations. Wh
 
 Tetra uses a C library called SDL 2.0 to interact with platform-specific functionality (such as windowing and input). Unlike Tetra's Rust dependencies, SDL is usually dynamically linked, meaning that the library needs to be present on the end user's machine for your application to run. Therefore, it is usually good practice to bundle SDL with your game when distributing it.
 
-On Windows, the easiest way to do this is to include `SDL2.dll` in the same folder as your game's executable. This file can be obtained via the '[Runtime Binaries](https://www.libsdl.org/download-2.0.php)' section of SDL's website.
+On Windows, the easiest way to do this is to include `SDL2.dll` in the same folder as your game's executable. You will probably have a copy of this file already if you followed the [installation guide](./installation.md), but if not, you can obtain it via the '[Runtime Binaries](https://www.libsdl.org/download-2.0.php)' section of SDL's website.
 
 Alternatively, you can choose to [statically link SDL into your game](/faq/#can-i-static-link-sdl) - however, this comes with [some tradeoffs](https://hg.libsdl.org/SDL/file/default/docs/README-dynapi.md) that need to be taken into account, so make sure you understand them before switching.
 

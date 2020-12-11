@@ -47,11 +47,15 @@ fn main() -> tetra::Result {
 }
 ```
 
-::: info
-A `Texture` is effectively just an ID number under the hood. This means that they are very lightweight and cheap to clone - don't tie yourself in knots trying to pass references to them around your application!
-:::
+Notice that we're now using the previously unnamed parameter that's passed to the `run` closure - it's a mutable reference to our `Context`, allowing us to access it in the initialization code for our state.
 
 Try running the game now - if all is well, it should start up just like it did last chapter. If you get an error message, check that you've entered the image's path correctly!
+
+::: info
+A `Texture` is effectively just an ID number under the hood. This means that they are very lightweight and cheap to clone - don't tie yourself in knots trying to pass references to them around your application!
+
+The same is true for quite a few other types in Tetra - check the API documentation for more info.
+:::
 
 ## Cleaning Up
 
@@ -66,7 +70,18 @@ impl GameState {
 }
 ```
 
-Because the function's signature matches what's expected by `run`, we can now get rid of the closure and pass the function in directly:
+We could call this inside of the `run` closure, like so:
+
+```rust
+fn main() -> tetra::Result {
+    ContextBuilder::new("Pong", 640, 480)
+        .quit_on_escape(true)
+        .build()?
+        .run(|ctx| GameState::new(ctx))
+}
+```
+
+That's already a big improvement! However, there's a useful trick that we can apply here to make this even shorter. Because our constructor function's signature and the `run` closure's signature are the same, we can just pass the constructor function in directly:
 
 ```rust
 fn main() -> tetra::Result {
@@ -77,7 +92,7 @@ fn main() -> tetra::Result {
 }
 ```
 
-Much better! This is the conventional style for a Tetra `main` function, and is what you'll see in most of the examples.
+This is the conventional style for a Tetra `main` function, and is what you'll see in most of the examples.
 
 While we're here, let's pull our window width and height out into constants, so that we'll be able to use them in our game logic:
 

@@ -164,7 +164,7 @@ Storing the identity of the paddle that got hit is redundant right now, but we'l
 ::: warning
 More experienced gamedevs may notice a potential problem with doing collision detection in this way - if the ball's speed makes it move further than the width of the paddle in one tick, it'll never intersect, making it look like the ball has just phased straight through the paddle!
 
-This phenomenon is known as 'tunnelling', and fixing it is out of scope for this tutorial - feel free to research it yourself, though!
+This phenomenon is commonly known as 'tunnelling', and fixing it is out of scope for this tutorial - feel free to research it yourself, though!
 :::
 
 Now our ball bounces between the two paddles - but it never changes height or speed, which makes for a pretty boring game of Pong. Let's add some gameplay!
