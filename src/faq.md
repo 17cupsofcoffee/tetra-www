@@ -52,6 +52,10 @@ In the meantime, you can use via the `Mesh` API to implement this functionality 
 
 If that's too complicated and you just want to draw simple rectangles, you could also [create a solid colored `Texture`](https://docs.rs/tetra/0.5/tetra/graphics/struct.Texture.html#method.from_rgba) and then draw that. If you create a 1x1 solid white texture, you can use the `scale` and `color` `DrawParams` to draw multiple rectangles of varying sizes/colors/transparencies in a single draw call.
 
+### Does Tetra support high-DPI rendering?
+
+Tetra added basic support for high-DPI rendering in 0.5.4, which can be enabled via [`ContextBuilder::high_dpi`](https://docs.rs/tetra/0.5/tetra/struct.ContextBuilder.html#method.high_dpi). You may also need some platform-specific configuration/packaging - see the docs for `ContextBuilder::high_dpi` for more info.
+
 ## Performance
 
 ### Why is my game running slow?
