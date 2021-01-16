@@ -41,7 +41,7 @@ Note, however, that it [does not currently provide license info for the Rust sta
 
 By default, an application built by Cargo won't have any sort of icon or metadata, which can look somewhat unprofessional.
 
-On Windows, you can add these easily via the [`winres`](https://github.com/mxre/winres) crate, which can be used via a `build.rs` script in your project. Alternatively, you can call directly into the `rc` command line tool included in the Windows SDK, or use an GUI application such as [ResEdit](http://www.resedit.net/).
+On Windows, you can add these via the [`embed-resource`](https://crates.io/crates/embed-resource) or [`winres`](https://github.com/mxre/winres) crates, which can be used via a `build.rs` script in your project. Alternatively, you can call directly into the `rc` command line tool included in the Windows SDK, or use an GUI application such as [ResEdit](http://www.resedit.net/).
 
 On Mac, icons and metadata can be added by creating an Application Bundle, also known as a `.app`. Full details on the structure of these bundles can be found in [Apple's documentation](#change-the-game-s-icon-metadata).
 
