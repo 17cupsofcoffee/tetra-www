@@ -21,6 +21,7 @@ You can also click on the name of the example below to view the source code.
 | [`scaling`](https://github.com/17cupsofcoffee/tetra/blob/main/examples/scaling.rs) | Graphics | Demonstrates the different screen scaling algorithms. |
 | [`camera`](https://github.com/17cupsofcoffee/tetra/blob/main/examples/camera.rs) | Graphics | Demonstrates how to use a camera to transform the scene. |
 | [`interpolation`](https://github.com/17cupsofcoffee/tetra/blob/main/examples/interpolation.rs) | Graphics | Demonstrates how to interpolate between updates. |
+| [`shapes`](https://github.com/17cupsofcoffee/tetra/blob/main/examples/shapes.rs) | Graphics | Demonstrates how to draw primitive shapes. |
 | [`audio`](https://github.com/17cupsofcoffee/tetra/blob/main/examples/audio.rs) | Audio | Plays back an audio file. |
 | [`keyboard`](https://github.com/17cupsofcoffee/tetra/blob/main/examples/keyboard.rs) | Input | Moves a texture around based on keyboard input. |
 | [`animation_controller`](https://github.com/17cupsofcoffee/tetra/blob/main/examples/animation_controller.rs) | Input | Moves a sprite around, with the animation changing based on keyboard input. |

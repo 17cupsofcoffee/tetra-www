@@ -42,15 +42,17 @@ If your OpenGL version is 3.2 or higher and you're still getting a black screen,
 
 ### Does Tetra support drawing custom meshes?
 
-Yes - this frequently requested feature was added in version 0.5.4, in the form of the `Mesh` API.
+Yes - the `Mesh` API has been available since 0.5.4.
 
 ### Does Tetra support drawing primitive shapes?
 
-Tetra doesn't currently have built-in support for drawing primitives, but there is an [open issue](https://github.com/17cupsofcoffee/tetra/issues/103) to add it.
+Yes - since 0.5.8, `Mesh` has constructors for basic shapes and there is a `GeometryBuilder` type that can be used to build more complex shapes without manipulating raw vertex data. For more complex/custom use cases, the third party [`lyon`](https://github.com/nical/lyon) crate can be used to generate vertex data.
 
-In the meantime, you can use via the `Mesh` API to implement this functionality yourself if your game requires it. Crates like [`lyon`](https://github.com/nical/lyon) can be used to generate vertex data from shapes, and then this can be fed into a `Mesh` to render it. 
+Note that primitive shape drawing currently isn't batched, so drawing too many generated shapes at once may be slow.
 
-If that's too complicated and you just want to draw simple rectangles, you could also [create a solid colored `Texture`](https://docs.rs/tetra/0.5/tetra/graphics/struct.Texture.html#method.from_rgba) and then draw that. If you create a 1x1 solid white texture, you can use the `scale` and `color` `DrawParams` to draw multiple rectangles of varying sizes/colors/transparencies in a single draw call.
+If that's all too complicated and you just want to draw simple rectangles, you could also [create a solid colored `Texture`](https://docs.rs/tetra/0.5/tetra/graphics/struct.Texture.html#method.from_rgba) and then draw that. If you create a 1x1 solid white texture, you can use the `scale` and `color` `DrawParams` to draw multiple rectangles of varying sizes/colors/transparencies in a single draw call.
+
+
 
 ### Does Tetra support high-DPI rendering?
 
