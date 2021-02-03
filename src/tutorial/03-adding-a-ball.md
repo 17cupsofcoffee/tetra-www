@@ -42,9 +42,9 @@ Ok(GameState {
 fn draw(&mut self, ctx: &mut Context) -> tetra::Result {
     graphics::clear(ctx, Color::rgb(0.392, 0.584, 0.929));
 
-    graphics::draw(ctx, &self.player1.texture, self.player1.position);
-    graphics::draw(ctx, &self.player2.texture, self.player2.position);
-    graphics::draw(ctx, &self.ball.texture, self.ball.position);
+    self.player1.texture.draw(ctx, self.player1.position);
+    self.player2.texture.draw(ctx, self.player2.position);
+    self.ball.texture.draw(ctx, self.ball.position);
 
     Ok(())
 }
@@ -425,9 +425,9 @@ impl State for GameState {
     fn draw(&mut self, ctx: &mut Context) -> tetra::Result {
         graphics::clear(ctx, Color::rgb(0.392, 0.584, 0.929));
 
-        graphics::draw(ctx, &self.player1.texture, self.player1.position);
-        graphics::draw(ctx, &self.player2.texture, self.player2.position);
-        graphics::draw(ctx, &self.ball.texture, self.ball.position);
+        self.player1.texture.draw(ctx, self.player1.position);
+        self.player2.texture.draw(ctx, self.player2.position);
+        self.ball.texture.draw(ctx, self.ball.position);
 
         Ok(())
     }

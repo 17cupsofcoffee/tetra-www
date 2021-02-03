@@ -23,7 +23,7 @@ Create a folder called `resources` in your project directory, and save this imag
 The naming of this folder isn't something that's enforced by Tetra - structure your projects however you'd like!
 :::
 
-To add this image to our game, we can use our first new type of the chapter: [`Texture`](https://docs.rs/tetra/0.5/tetra/graphics/struct.Texture.html). This represents a piece of image data that has been loaded into graphics memory.
+To add this image to our game, we can use our first new type of the chapter: [`Texture`](https://docs.rs/tetra/0.6/tetra/graphics/struct.Texture.html). This represents a piece of image data that has been loaded into graphics memory.
 
 Since we want our texture to stay loaded until the game closes, let's add it as a field in our `GameState` struct:
 
@@ -33,7 +33,7 @@ struct GameState {
 }
 ```
 
-We can then use [`Texture::new`](https://docs.rs/tetra/0.5/tetra/graphics/struct.Texture.html#method.new) to load the sprite and populate that field:
+We can then use [`Texture::new`](https://docs.rs/tetra/0.6/tetra/graphics/struct.Texture.html#method.new) to load the sprite and populate that field:
 
 ```rust
 fn main() -> tetra::Result {
@@ -116,7 +116,7 @@ With that bit of housekeeping out of the way, let's finally draw something!
 
 ## Drawing to the Screen
 
-To draw our texture, we'll need to make use of another function from the [`graphics`](https://docs.rs/tetra/0.5/tetra/graphics/index.html) module - [`graphics::draw`](https://docs.rs/tetra/0.5/tetra/graphics/fn.draw.html]):
+To draw our texture, we just need to call the `draw` method on the `Texture` type:
 
 ```rust
 // Inside `impl State for GameState`:
@@ -124,7 +124,7 @@ To draw our texture, we'll need to make use of another function from the [`graph
 fn draw(&mut self, ctx: &mut Context) -> tetra::Result {
     graphics::clear(ctx, Color::rgb(0.392, 0.584, 0.929));
 
-    graphics::draw(ctx, &self.paddle_texture, Vec2::new(16.0, 16.0));
+    self.paddle_texture.draw(ctx, Vec2::new(16.0, 16.0));
 
     Ok(())
 }
@@ -133,9 +133,9 @@ fn draw(&mut self, ctx: &mut Context) -> tetra::Result {
 This will draw the texture to the screen at position `16.0, 16.0`.
 
 ::: info
-If you look at the docs for [`graphics::draw`](https://docs.rs/tetra/0.5/tetra/graphics/fn.draw.html), you'll notice that the type of the third parameter is actually `Into<DrawParams>`, not `Vec2`.
+If you look at the docs for [`Texture::draw`](https://docs.rs/tetra/0.6/tetra/graphics/struct.Texture.html#method.draw), you'll notice that the type of the second parameter is actually `Into<DrawParams>`, not `Vec2`.
 
-When you pass in a `Vec2`, it is automatically converted into a [`DrawParams`](https://docs.rs/tetra/0.5/tetra/graphics/struct.DrawParams.html) struct with the `position` parameter set. If you want to change other parameters, such as the rotation, color or scale, you can construct your own `DrawParams` instead, using `DrawParams::new`.
+When you pass in a `Vec2`, it is automatically converted into a [`DrawParams`](https://docs.rs/tetra/0.6/tetra/graphics/struct.DrawParams.html) struct with the `position` parameter set. If you want to change other parameters, such as the rotation, color or scale, you can construct your own `DrawParams` instead, using `DrawParams::new`.
 :::
 
 ## Reacting to Input
@@ -172,7 +172,7 @@ We can then plug this field into our existing rendering code, so that the textur
 fn draw(&mut self, ctx: &mut Context) -> tetra::Result {
     graphics::clear(ctx, Color::rgb(0.392, 0.584, 0.929));
 
-    graphics::draw(ctx, &self.paddle_texture, self.paddle_position);
+    self.paddle_texture.draw(ctx, self.paddle_position);
 
     Ok(())
 }
@@ -191,15 +191,15 @@ While we _could_ do this in our `draw` method, this is a bad idea for several re
 - Mixing up our game logic and our rendering logic isn't great seperation of concerns.
 - The `draw` method does not get called at a consistent rate - the timing can fluctuate depending on the speed of the system the game is being run on, leading to subtle differences in behaviour. This is fine for drawing, but definitely not for physics!
 
-Instead, it's time for us to add another method to our [`State`](https://docs.rs/tetra/0.5/tetra/trait.State.html) implementation. The [`update`](https://docs.rs/tetra/0.5/tetra/trait.State.html#method.update) method is called 60 times a second, regardless of how fast the game as a whole is running. This means that even if rendering slows to a crawl, you can still be confident that the code in that method is deterministic.
+Instead, it's time for us to add another method to our [`State`](https://docs.rs/tetra/0.6/tetra/trait.State.html) implementation. The [`update`](https://docs.rs/tetra/0.6/tetra/trait.State.html#method.update) method is called 60 times a second, regardless of how fast the game as a whole is running. This means that even if rendering slows to a crawl, you can still be confident that the code in that method is deterministic.
 
 ::: info
 This 'fixed-rate update, variable-rate rendering' style of game loop is best explained by Glenn Fiedler's classic '[Fix Your Timestep](https://gafferongames.com/post/fix_your_timestep/)' blog post. If you've used the `FixedUpdate` method in Unity, this should feel pretty familiar!
 
-If you want to change the rate at which updates happen, or switch to a more traditional 'lockstep' game loop, you can do this via the [`timestep` parameter on `ContextBuilder`](https://docs.rs/tetra/0.5/tetra/struct.ContextBuilder.html#method.timestep).
+If you want to change the rate at which updates happen, or switch to a more traditional 'lockstep' game loop, you can do this via the [`timestep` parameter on `ContextBuilder`](https://docs.rs/tetra/0.6/tetra/struct.ContextBuilder.html#method.timestep).
 :::
 
-Inside the `update` method, we can use the functions exposed by the [`input`](https://docs.rs/tetra/0.5/tetra/input/index.html) module in order to check the state of the keyboard:
+Inside the `update` method, we can use the functions exposed by the [`input`](https://docs.rs/tetra/0.6/tetra/input/index.html) module in order to check the state of the keyboard:
 
 ```rust
 // Inside `impl State for GameState`:
@@ -301,8 +301,8 @@ impl State for GameState {
     fn draw(&mut self, ctx: &mut Context) -> tetra::Result {
         graphics::clear(ctx, Color::rgb(0.392, 0.584, 0.929));
 
-        graphics::draw(ctx, &self.player1.texture, self.player1.position);
-        graphics::draw(ctx, &self.player2.texture, self.player2.position);
+        self.player1.texture.draw(ctx, self.player1.position);
+        self.player2.texture.draw(ctx, self.player2.position);
 
         Ok(())
     }
@@ -395,8 +395,8 @@ impl State for GameState {
     fn draw(&mut self, ctx: &mut Context) -> tetra::Result {
         graphics::clear(ctx, Color::rgb(0.392, 0.584, 0.929));
 
-        graphics::draw(ctx, &self.player1.texture, self.player1.position);
-        graphics::draw(ctx, &self.player2.texture, self.player2.position);
+        self.player1.texture.draw(ctx, self.player1.position);
+        self.player2.texture.draw(ctx, self.player2.position);
 
         Ok(())
     }
