@@ -1,3 +1,8 @@
+---
+id: 03-adding-a-ball
+description: Part three of a tutorial on how to build a simple Pong clone with Tetra.
+---
+
 # Adding a Ball
 
 In the [previous chapter](./02-adding-the-paddles.md), we added paddles to the game - but they've got nothing to hit! Let's finish things off.
@@ -157,11 +162,11 @@ if paddle_hit.is_some() {
 }
 ```
 
-::: info
+:::info
 Storing the identity of the paddle that got hit is redundant right now, but we'll use it later!
 :::
 
-::: warning
+:::caution
 More experienced gamedevs may notice a potential problem with doing collision detection in this way - if the ball's speed makes it move further than the width of the paddle in one tick, it'll never intersect, making it look like the ball has just phased straight through the paddle!
 
 This phenomenon is commonly known as 'tunnelling', and fixing it is out of scope for this tutorial - feel free to research it yourself, though!
@@ -212,7 +217,7 @@ if let Some(paddle) = paddle_hit {
 }
 ```
 
-::: info
+:::info
 I'll admit, it's a little bit wasteful to calculate the X center as well, but I'm aiming for code clarity over maximum efficiency. Besides, it's a Pong clone, not Crysis!
 :::
 

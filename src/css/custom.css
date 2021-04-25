@@ -1,0 +1,87 @@
+/* stylelint-disable docusaurus/copyright-header */
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+    --ifm-color-primary: #764abc;
+    --ifm-color-primary-dark: #6a40ac;
+    --ifm-color-primary-darker: #643ca3;
+    --ifm-color-primary-darkest: #523286;
+    --ifm-color-primary-light: #845dc3;
+    --ifm-color-primary-lighter: #8c67c7;
+    --ifm-color-primary-lightest: #a183d1;
+    --ifm-code-font-size: 95%;
+
+    --ra-admonition-color: #ecf4f9;
+    --ra-admonition-color-dark: #2a98b9;
+    --ra-admonition-color-important: #2a98b9;
+    --ra-admonition-color-success: #f1fdf9;
+    --ra-admonition-color-success-dark: #00bf88;
+    --ra-admonition-color-caution: #fffbf5;
+    --ra-admonition-color-caution-dark: #f0ad4e;
+    --ra-admonition-color-error: #fff2f2;
+    --ra-admonition-color-error-dark: #d9534f;
+    --ra-admonition-icon-color: black !important;
+}
+
+.docusaurus-highlight-code-line {
+    background-color: rgb(72, 77, 91);
+    display: block;
+    margin: 0 calc(-1 * var(--ifm-pre-padding));
+    padding: 0 var(--ifm-pre-padding);
+}
+
+.admonition {
+    color: black;
+    border-radius: var(--ifm-global-radius);
+    border: 0;
+    border-left: 6px solid var(--ra-admonition-color-dark);
+}
+
+.admonition.admonition-note,
+.admonition.admonition-info,
+.admonition.admonition-important,
+.admonition.admonition-secondary {
+    --ra-admonition-color: #ecf4f9;
+    background-color: var(--ra-admonition-color);
+}
+
+.admonition.admonition-success,
+.admonition.admonition-tip {
+    background-color: var(--ra-admonition-color-success);
+    border-left-color: var(--ra-admonition-color-success-dark);
+}
+
+.admonition.admonition-caution {
+    background-color: var(--ra-admonition-color-caution);
+    border-left-color: var(--ra-admonition-color-caution-dark);
+}
+
+.admonition.admonition-warning,
+.admonition.admonition-danger {
+    background-color: var(--ra-admonition-color-error);
+    border-left-color: var(--ra-admonition-color-error-dark);
+}
+
+.admonition .admonition-icon svg {
+    fill: black;
+    stroke: black;
+}
+
+.admonition.alert a {
+    color: var(--ifm-link-color);
+    text-decoration: none;
+}
+
+code {
+    color: black;
+    background-color: var(--ifm-color-gray-200);
+}
+
+a code {
+    color: var(--ifm-link-color);
+}
