@@ -10,6 +10,7 @@ module.exports = {
     organizationName: "17cupsofcoffee",
     projectName: "tetra",
     themeConfig: {
+        metadatas: [{ name: 'twitter:card', content: 'summary' }],
         navbar: {
             title: "Tetra",
             items: [
