@@ -1,3 +1,8 @@
+---
+description: A tutorial on how to build a simple Pong clone with Tetra.
+slug: /tutorial
+---
+
 # Tutorial: Pong
 
 ![Screenshot of Pong](./images/screenshot.png)

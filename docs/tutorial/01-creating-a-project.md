@@ -1,3 +1,8 @@
+---
+id: 01-creating-a-project
+description: Part one of a tutorial on how to build a simple Pong clone with Tetra.
+---
+
 # Creating a Project
 
 First, you'll need to make sure your development environment is set up properly. There's three things that need to be installed on your machine in order to successfully compile a Tetra project:
@@ -22,8 +27,8 @@ Next, add Tetra as a dependency in the newly-generated `Cargo.toml`:
 tetra = "0.6"
 ```
 
-::: danger
-**If you're developing on Windows**, make sure you've dropped the SDL libraries into your `pong` folder, as described in the [installation guide](../installation.md). Your game won't build or run without them!
+:::caution
+If you're developing on Windows, make sure you've dropped the SDL libraries into your `pong` folder, as described in the [installation guide](../installation.md). Your game won't build or run without them!
 
 You will also need to distribute `SDL2.dll` with your game if you send it to someone else.
 :::
@@ -53,7 +58,7 @@ fn main() {
 
 This creates a `Context` that is configured to display a window with the title 'Pong', sized at 640 by 480 pixels, which will automatically close when the player presses the escape key.
 
-::: info
+:::info
 To see what other options can be set on a `Context`, and what the default settings are, take a look at the API documentation for [`ContextBuilder`](https://docs.rs/tetra/0.6.1/tetra/struct.ContextBuilder.html).
 :::
 
@@ -65,7 +70,7 @@ To fix this, we'll need to implement `State`.
 
 [`State`](https://docs.rs/tetra/0.6/tetra/trait.State.html) is a trait exposed by Tetra, which is implemented for the type that stores your game's state. It exposes various methods that will be called during the game loop, and you can override these in order to define your game's behaviour.
 
-::: info
+:::info
 This trait fulfils a similar purpose to the `Game` base class in XNA, or the `ApplicationListener` interface in LibGDX.
 :::
 
@@ -98,7 +103,7 @@ There's a few things you should pay attention to here:
 
 `build` will return an error if the context fails to be constructed, and `run` will return any errors you throw during the game loop. By using the `?` operator, we can propagate these errors up and out of `main`. Rust will then automatically print out the error message to the terminal, which is handy when debugging.
 
-::: info
+:::info
 Returning `Result` from `main` is nice for prototyping, but doesn't give you much control over how the error gets reported. If you want to customize this, you can always `match` on the result of `build` and/or `run`.
 :::
 

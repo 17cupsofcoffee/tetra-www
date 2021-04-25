@@ -1,6 +1,10 @@
+---
+description: Tips and tricks for distributing games made with Tetra.
+---
+
 # Distributing
 
-::: warning
+:::info
 This page is a work in progress. It's especially missing information on Mac and Linux, as I'm not sure what the idiomatic ways of distributing games are on those platforms!
 
 If you have knowledge of these platforms, or other experience distributing games written in Rust, please [contribute](https://github.com/17cupsofcoffee/tetra-www/edit/main/src/distributing.md)!
@@ -8,16 +12,13 @@ If you have knowledge of these platforms, or other experience distributing games
 
 This page lists some of the things that should be taken into consideration when distributing a game built with Tetra.
 
-The items are broken down into two categories:
+## Required
 
-* <Badge text="Required" type="error" vertical="middle" /> - Essential steps that should be followed for all projects.
-* <Badge text="Optional" vertical="middle" /> - Non-essential steps that can be followed to make your game more polished.
-
-## Build in Release Mode <Badge text="Required" type="error" vertical="middle" />
+### Build in Release Mode
 
 By default, Cargo builds projects in debug mode, with very few optimizations. When you plan on distributing your game, you should make sure to run `cargo build` with the `--release` flag, to ensure that the final executable is as optimized as possible. There are [benchmarks in the FAQ](/faq/#benchmarks) which show that this makes a significant different to the performance!
 
-## Include SDL 2.0 <Badge text="Required" type="error" vertical="middle" />
+### Include SDL 2.0
 
 Tetra uses a C library called SDL 2.0 to interact with platform-specific functionality (such as windowing and input). Unlike Tetra's Rust dependencies, SDL is usually dynamically linked, meaning that the library needs to be present on the end user's machine for your application to run. Therefore, it is usually good practice to bundle SDL with your game when distributing it.
 
@@ -25,19 +26,21 @@ On Windows, the easiest way to do this is to include `SDL2.dll` in the same fold
 
 Alternatively, you can choose to [statically link SDL into your game](/faq/#can-i-static-link-sdl) - however, this comes with [some tradeoffs](https://hg.libsdl.org/SDL/file/default/docs/README-dynapi.md) that need to be taken into account, so make sure you understand them before switching.
 
-## Include Software Licenses <Badge text="Required" type="error" vertical="middle" />
+### Include Software Licenses
 
 Tetra is provided under the terms of the [MIT License](https://opensource.org/licenses/MIT). One of the terms of this license is that you must include [the license text](https://github.com/17cupsofcoffee/tetra/blob/main/LICENSE) alongside 'all copies or substantial portions' of the library. Similar terms apply to many of Tetra's dependencies, including [the Rust standard library](https://github.com/rust-lang/rust/blob/master/COPYRIGHT), so it is important to make sure you've fulfilled these requirements when distributing your game to the public.
 
 In practice, this usually means adding a screen to your game that displays open source licenses, or providing text files alongside the executable.
 
-::: tip
+:::tip
 [Embark Studios](https://www.embark-studios.com) has created a tool called [`cargo-about`](https://github.com/EmbarkStudios/cargo-about/) which can help you automate the arduous task of gathering these license files and outputting them into a template.
 
 Note, however, that it [does not currently provide license info for the Rust standard library](https://github.com/EmbarkStudios/cargo-about/issues/16) - you will need to obtain this yourself.
 :::
 
-## Change the Game's Icon/Metadata <Badge text="Optional" vertical="middle" />
+## Optional
+
+### Change the Game's Icon/Metadata
 
 By default, an application built by Cargo won't have any sort of icon or metadata, which can look somewhat unprofessional.
 
@@ -47,11 +50,11 @@ On Mac, icons and metadata can be added by creating an Application Bundle, also 
 
 On Linux, icons and metadata are generally provided via a [`.desktop` file](https://specifications.freedesktop.org/desktop-entry-spec/latest/) placed in `/usr/share/applications/` (for everyone on the machine) or `~/.local/share/applications` (for a single user). This will also make your game appear in the user's 'Applications' list.
 
-::: tip
+:::tip
 You may also want to consider using something like [AppImage](https://appimage.org/) to package your game and its metadata for distribution - this works in a similar manner to creating an Application Bundle on Mac.
 :::
 
-## Hide the Console Window <Badge text="Optional" vertical="middle" />
+### Hide the Console Window
 
 On some platforms, applications built with Rust will display a console window while running by default. This can be useful while debugging, but is usually undesirable for the final release. 
 
@@ -65,7 +68,7 @@ On Windows, you can hide this window by adding the `windows_subsystem` attribute
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 ```
 
-::: warning
+:::caution
 When `windows_subsystem = "windows"` is applied, your application will no longer be able to read from `stdin` or write to `stdout`/`stderr`, as Windows does not attach them by default for GUI applications. Amonst other things, this means that you cannot log errors via `println!` or by returning them from `main` - no output will be displayed, even if the game is run from a command line.
 
 Make sure you have some other way of logging out fatal errors, otherwise it will be very difficult to diagnose the cause of crashes!

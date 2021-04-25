@@ -5,7 +5,7 @@
 
 This repository holds the source code for [Tetra](https://github.com/17cupsofcoffee/tetra)'s [documentation website](https://tetra.seventeencups.net).
 
-It uses [VuePress](https://vuepress.vuejs.org) to generate a static site, which is then deployed to [Netlify](https://www.netlify.com/).
+It uses [Docusaurus 2](https://docusaurus.io) to generate a static site, which is then deployed to [Netlify](https://www.netlify.com/).
 
 ## Contributing
 
@@ -17,7 +17,7 @@ To run the dev server:
 npm run start
 ```
 
-To build the site and output it to the `dist` folder:
+To build the site and output it to the `build` folder:
 
 ```
 npm run build
@@ -29,7 +29,7 @@ Also, note that all commits will be formatted by [Prettier](https://prettier.io)
 
 This site has a 'showcase' page, which lists games that were created with Tetra. If you'd like your project to appear in this list:
 
-* Add a screenshot of your game to [`/src/.vuepress/public/img/showcase`](https://github.com/17cupsofcoffee/tetra-www/tree/main/src/.vuepress/public/img/showcase). Keep the file size reasonable, and no GIFs please!
-* Add your game's info to [`/src/showcase.md`](https://github.com/17cupsofcoffee/tetra-www/blob/main/src/showcase.md).
+* Add a screenshot of your game to [`/static/img/showcase`](https://github.com/17cupsofcoffee/tetra-www/tree/main/static/img/showcase). Keep the file size reasonable, and no GIFs please!
+* Add your game's info to [`/src/pages/showcase.js`](https://github.com/17cupsofcoffee/tetra-www/blob/main/src/pages/showcase.js).
 
 Alternatively, if you don't feel confident in following the above steps, please [open an issue](https://github.com/17cupsofcoffee/tetra-www/issues/new).

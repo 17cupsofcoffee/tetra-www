@@ -1,11 +1,15 @@
+---
+description: A guide to getting started with the Tetra 2D game framework.
+---
+
 # Installation
 
 To get started with Tetra, you'll need several things installed, some of which are only needed on certain platforms:
 
-* *All platforms:*
+* **All platforms:**
     * The latest stable version of Rust
     * The SDL 2.0 development libraries
-* *Linux:*
+* **Linux:**
     * The ALSA development libraries
 
 ## Installing Rust
@@ -42,7 +46,7 @@ You will also need to add the following to your `~/.bash_profile`, if it is not 
 export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 ```
 
-::: warning
+:::caution
 If you're building your game on Catalina, make sure that you use SDL 2.0.12 or higher - there is a
 [bug in earlier versions](https://hg.libsdl.org/SDL/rev/46b094f7d20e) which causes the OpenGL
 viewport to not scale correctly. See [issue #147](https://github.com/17cupsofcoffee/tetra/issues/147)

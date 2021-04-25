@@ -1,3 +1,7 @@
+---
+description: A list of example Tetra projects.
+---
+
 # Examples
 
 Tetra has a fairly large suite of examples - to try them out, clone the repository and run:

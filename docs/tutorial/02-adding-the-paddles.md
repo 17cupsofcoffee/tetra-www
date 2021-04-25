@@ -1,6 +1,11 @@
+---
+id: 02-adding-the-paddles
+description: Part two of a tutorial on how to build a simple Pong clone with Tetra.
+---
+
 # Adding the Paddles
 
-In the [previous chapter](./01-creating-the-project.md), we created a window and gave it a background color. Next, let's draw some paddles and make them move!
+In the [previous chapter](./01-creating-a-project.md), we created a window and gave it a background color. Next, let's draw some paddles and make them move!
 
 First up, let's update our imports with the new types/modules that we'll be using:
 
@@ -19,7 +24,7 @@ Create a folder called `resources` in your project directory, and save this imag
 
 ![Player 1 sprite](./images/player1.png)
 
-::: info
+:::info
 The naming of this folder isn't something that's enforced by Tetra - structure your projects however you'd like!
 :::
 
@@ -51,7 +56,7 @@ Notice that we're now using the previously unnamed parameter that's passed to th
 
 Try running the game now - if all is well, it should start up just like it did last chapter. If you get an error message, check that you've entered the image's path correctly!
 
-::: info
+:::info
 A `Texture` is effectively just an ID number under the hood. This means that they are very lightweight and cheap to clone - don't tie yourself in knots trying to pass references to them around your application!
 
 The same is true for quite a few other types in Tetra - check the API documentation for more info.
@@ -108,7 +113,7 @@ fn main() -> tetra::Result {
 }
 ```
 
-::: info
+:::info
 The `i32` casts look a bit silly, but for most of the places we'll be using the constants, it'll be easier to have them as floating point numbers.
 :::
 
@@ -132,7 +137,7 @@ fn draw(&mut self, ctx: &mut Context) -> tetra::Result {
 
 This will draw the texture to the screen at position `16.0, 16.0`.
 
-::: info
+:::info
 If you look at the docs for [`Texture::draw`](https://docs.rs/tetra/0.6/tetra/graphics/struct.Texture.html#method.draw), you'll notice that the type of the second parameter is actually `Into<DrawParams>`, not `Vec2`.
 
 When you pass in a `Vec2`, it is automatically converted into a [`DrawParams`](https://docs.rs/tetra/0.6/tetra/graphics/struct.DrawParams.html) struct with the `position` parameter set. If you want to change other parameters, such as the rotation, color or scale, you can construct your own `DrawParams` instead, using `DrawParams::new`.
@@ -193,7 +198,7 @@ While we _could_ do this in our `draw` method, this is a bad idea for several re
 
 Instead, it's time for us to add another method to our [`State`](https://docs.rs/tetra/0.6/tetra/trait.State.html) implementation. The [`update`](https://docs.rs/tetra/0.6/tetra/trait.State.html#method.update) method is called 60 times a second, regardless of how fast the game as a whole is running. This means that even if rendering slows to a crawl, you can still be confident that the code in that method is deterministic.
 
-::: info
+:::info
 This 'fixed-rate update, variable-rate rendering' style of game loop is best explained by Glenn Fiedler's classic '[Fix Your Timestep](https://gafferongames.com/post/fix_your_timestep/)' blog post. If you've used the `FixedUpdate` method in Unity, this should feel pretty familiar!
 
 If you want to change the rate at which updates happen, or switch to a more traditional 'lockstep' game loop, you can do this via the [`timestep` parameter on `ContextBuilder`](https://docs.rs/tetra/0.6/tetra/struct.ContextBuilder.html#method.timestep).
@@ -242,7 +247,7 @@ impl Entity {
 }
 ```
 
-::: info
+:::info
 It's worth mentioning at this point: this isn't the only way of structuring a game in Rust!
 
 The language lends itself very well to 'data-driven' design patterns, such as [entity component systems](https://en.wikipedia.org/wiki/Entity_component_system), and you'll definitely want to investigate these concepts if you start writing a bigger game. For now though, let's keep things as simple as possible!

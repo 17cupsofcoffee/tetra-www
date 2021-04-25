@@ -1,4 +1,10 @@
+---
+description: A list of frequently asked questions about Tetra.
+---
+
 # FAQ
+
+<!-- This comment is just here to get the first heading to parse correctly...  -->
 
 ## General
 

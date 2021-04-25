@@ -1,0 +1,15 @@
+.showcaseCard {
+    height: 100%;
+}
+
+.showcaseCard :global .card__image {
+    max-height: 175px;
+    overflow: hidden;
+}
+
+.showcaseCard :global .card__image img {
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
