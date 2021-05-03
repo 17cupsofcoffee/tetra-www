@@ -47,6 +47,10 @@ module.exports = {
         prism: {
             additionalLanguages: ["rust", "toml"],
         },
+        algolia: {
+            apiKey: "f38e285766bc8a8c6bd3be5a0ae469a6",
+            indexName: "tetra",
+        },
     },
     presets: [
         [
