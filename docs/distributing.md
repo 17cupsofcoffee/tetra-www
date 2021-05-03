@@ -7,7 +7,7 @@ description: Tips and tricks for distributing games made with Tetra.
 :::info
 This page is a work in progress. It's especially missing information on Mac and Linux, as I'm not sure what the idiomatic ways of distributing games are on those platforms!
 
-If you have knowledge of these platforms, or other experience distributing games written in Rust, please [contribute](https://github.com/17cupsofcoffee/tetra-www/edit/main/src/distributing.md)!
+If you have knowledge of these platforms, or other experience distributing games written in Rust, please [contribute](https://github.com/17cupsofcoffee/tetra-www/edit/main/docs/distributing.md)!
 :::
 
 This page lists some of the things that should be taken into consideration when distributing a game built with Tetra.
